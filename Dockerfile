@@ -17,5 +17,18 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
+FROM node:19.7.0
+
+WORKDIR /frontend
+
+COPY . .
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+
 # copy project
 COPY . .

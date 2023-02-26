@@ -2,11 +2,11 @@
 
 
 ```
- docker-compose up -d --build 
+docker-compose up -d --build 
 ```
 
 ```
- docker-compose exec web python manage.py migrate --noinput
+docker-compose exec django_app python manage.py migrate --noinput
 ```
 
 !!! If you had problems during set up - try next command and try again from beginnig 

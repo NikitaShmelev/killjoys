@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web:
+  django_app:
     build: ./
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -12,6 +12,13 @@ services:
       - ./.env.dev
     depends_on:
       - db
+  react_app:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend
+
   db:
     image: postgres:13.0-alpine
     volumes:
