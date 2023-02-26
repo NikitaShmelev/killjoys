@@ -19,16 +19,7 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-FROM node:14 as build
-WORKDIR /app/frontend
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
 
-FROM nginx:1.19
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/frontend/build /usr/share/nginx/html
 
 # copy project
 COPY . .

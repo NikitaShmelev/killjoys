@@ -12,12 +12,15 @@ services:
       - ./.env.dev
     depends_on:
       - db
-  react_app:
-    build: ./
+  
+  frontend:
+    build: ./frontend
+    command: ["npm", "start"]
+    volumes:
+      - ./frontend:/app/frontend
+      - node-modules:/app/frontend/node_modules
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend:/frontend
 
   db:
     image: postgres:13.0-alpine
@@ -30,3 +33,4 @@ services:
 
 volumes:
   postgres_data:
+  node-modules:
