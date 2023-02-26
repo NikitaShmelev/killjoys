@@ -1,3 +1,5 @@
+# RUN export DOCKER_BUILDKIT=0
+# RUN export COMPOSE_DOCKER_CLI_BUILD=0
 # pull official base image
 FROM python:3.9.6-alpine
 
@@ -17,18 +19,16 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-FROM node:19.7.0
-
-WORKDIR /frontend
-
-COPY . .
-
+FROM node:14 as build
+WORKDIR /app/frontend
+COPY package*.json ./
 RUN npm install
+COPY . .
+RUN npm run build
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
-
+FROM nginx:1.19
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/frontend/build /usr/share/nginx/html
 
 # copy project
 COPY . .
