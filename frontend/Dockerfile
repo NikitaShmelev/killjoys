@@ -1,11 +1,13 @@
-FROM node
+FROM node:16-alpine
 
-WORKDIR /app/frontend
-COPY package.json /app/frontend
+WORKDIR /app/frontend/
 
+COPY package*.json /app/frontend/
 RUN npm install
-RUN npm install -g nodemon
 
-EXPOSE 3000
-# CMD ["npm", "start"]
-CMD [“node”, “server.js”]
+COPY . /app/frontend/
+ENV PATH /app/frontend/node_modules/.bin:$PATH
+# Install dependencies
+RUN npm install
+# Deploy app for local development
+CMD npm start --host 0.0.0.0 --port 3000 --disableHostCheck true
