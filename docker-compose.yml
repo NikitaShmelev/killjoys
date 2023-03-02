@@ -15,7 +15,7 @@ services:
   
   frontend:
     build: ./frontend
-    command: ["npm", "start"]
+    command: [“node”, “server.js”]
     volumes:
       - ./frontend:/app/frontend
       - node-modules:/app/frontend/node_modules

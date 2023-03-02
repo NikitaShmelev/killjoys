@@ -4,6 +4,8 @@ WORKDIR /app/frontend
 COPY package.json /app/frontend
 
 RUN npm install
+RUN npm install -g nodemon
 
 EXPOSE 3000
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
+CMD [“node”, “server.js”]
