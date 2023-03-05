@@ -6,6 +6,8 @@ node_*
 .pnp.js
 /test_chat.ipynb
 /test_text.txt
+/kos
+/kos2
 # testing
 /coverage
 
