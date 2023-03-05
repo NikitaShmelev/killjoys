@@ -4,7 +4,8 @@
 node_*
 /.pnp
 .pnp.js
-
+/test_chat.ipynb
+/test_text.txt
 # testing
 /coverage
 
