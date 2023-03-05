@@ -30,10 +30,10 @@ class CourseListApiView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'data': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class TopicLiatApiView(APIView):
-    def get(self, request,pk=None, *args, **kwargs):
+    def get(self, request, pk=None, *args, **kwargs):
         topics = CourseTopic.objects(pk=pk)
         serializer = TopicSerializer(topics)
         return Response(serializer.data, status=status.HTTP_200_OK)
