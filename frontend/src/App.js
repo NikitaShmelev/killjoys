@@ -42,10 +42,12 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    if (!this.state.data) {
-      const data = fetchHomePage();
-      this.setState({data});
-    }
+    fetchHomePage().then(
+      (response) => {
+        this.setState({data: response.data});
+
+      }
+    );
   }
 
 
@@ -67,12 +69,15 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <Header>
-          
         </Header>
+        <CoursesComponent
+        courses={this.state.data || []}
+        >
+          
+        </CoursesComponent>
         <header className="App-header">
           <button>call</button>
         </header>
