@@ -5,6 +5,11 @@ import { fetchHomePage } from './endpoints/homepage';
 // import { connect } from 'redux';
 import CoursesComponent from './components/courses';
 import Header from './components/header';
+import CoursePreview from './components/CoursePreview/CoursePreview.jsx'
+import CourseSet from './components/CourseSet/CourseSet.jsx';
+
+
+
 
 
 const headerStyle = {
@@ -72,16 +77,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous"
+        />
         <Header>
         </Header>
-        <CoursesComponent
+        {/* <CoursesComponent
         courses={this.state.data || []}
         >
           
-        </CoursesComponent>
-        <header className="App-header">
-          <button>call</button>
-        </header>
+        </CoursesComponent> */}
+        <CourseSet/>
+        
       </div>
     );
   }

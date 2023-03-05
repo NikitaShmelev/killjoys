@@ -13,6 +13,6 @@ RUN npm install
 RUN npm install react-bootstrap bootstrap
 RUN npm install jquery --save
 # RUN npm install --save react-bootstrap bootstrap@3
-
+RUN npm install react-router-dom
 # Deploy app for local development
 CMD npm start --host 0.0.0.0 --port 3000 --disableHostCheck true
