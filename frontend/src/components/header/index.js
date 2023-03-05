@@ -30,11 +30,11 @@ class Header extends React.Component {
                     </a> */}
 
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><button href="#" className="nav-link px-2 text-secondary">Home</button></li>
-                    <li><button href="#" className="nav-link px-2 text-white">Features</button></li>
-                    <li><button href="#" className="nav-link px-2 text-white">Pricing</button></li>
-                    <li><button href="#" className="nav-link px-2 text-white">FAQs</button></li>
-                    <li><button href="#" className="nav-link px-2 text-white">About</button></li>
+                    <li><Button href="#" className="nav-link px-2 text-secondary">Home</Button></li>
+                    <li><Button href="#" className="nav-link px-2 text-white">Features</Button></li>
+                    <li><Button href="#" className="nav-link px-2 text-white">Pricing</Button></li>
+                    <li><Button href="#" className="nav-link px-2 text-white">FAQs</Button></li>
+                    <li><Button href="#" className="nav-link px-2 text-white">About</Button></li>
                     </ul>
 
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -42,8 +42,8 @@ class Header extends React.Component {
                     </form>
 
                     <div className="text-end">
-                    <button type="button" className="btn btn-outline-light me-2">Login</button>
-                    <button type="button" className="btn btn-warning">Sign-up</button>
+                    <Button type="Button" className="btn btn-outline-light me-2">Login</Button>
+                    <Button type="Button" className="btn btn-warning">Sign-up</Button>
                     </div>
                 </div>
             </div>
