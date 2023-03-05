@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './style.css'
 
+
 const navStyle = {
     display: 'inline-block',
     margin: '10px',
@@ -14,6 +15,7 @@ class Header extends React.Component {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
         <header class="p-3 text-bg-dark">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -22,14 +24,14 @@ class Header extends React.Component {
                     </a> */}
 
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><button href="#" class="nav-link px-2 text-secondary">Home</button></li>
-                    <li><button href="#" class="nav-link px-2 text-white">Features</button></li>
-                    <li><button href="#" class="nav-link px-2 text-white">Pricing</button></li>
-                    <li><button href="#" class="nav-link px-2 text-white">FAQs</button></li>
-                    <li><button href="#" class="nav-link px-2 text-white">About</button></li>
+                    <li><button href="#" class="headerButton">Home</button></li>
+                    <li><button href="#" class="headerButton">Features</button></li>
+                    <li><button href="#" class="headerButton">Pricing</button></li>
+                    <li><button href="#" class="headerButton">FAQs</button></li>
+                    <li><button href="#" class="headerButton">About</button></li>
                     </ul>
 
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <form class="searchForm" role="search">
                     <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"></input>
                     </form>
 

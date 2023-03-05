@@ -6,6 +6,7 @@ import { fetchHomePage } from './endpoints/homepage';
 import CoursesComponent from './components/courses';
 import Header from './components/header';
 
+
 const headerStyle = {
   background: '#333',
   color: '#fff',
@@ -23,20 +24,21 @@ class App extends React.Component {
 
   constructor(props){  
     super(props);  
-    [
-      {
-          "id": 1,
-          "name": "Nikita",
-      },
-      {
-          "id": 2,
-          "name": "Vova",
-      },
-      {
-          "id": 3,
-          "name": "Glib",
-      }
-  ]git 
+    this.state = {
+      data: [
+        {
+            "id": 1,
+            "name": "Nikita",
+        },
+        {
+            "id": 2,
+            "name": "Vova",
+        },
+        {
+            "id": 3,
+            "name": "Glib",
+        }
+    ]}
   }
 
   componentDidMount = () => {

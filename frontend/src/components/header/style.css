@@ -1,3 +1,18 @@
 div.container {
     width: 100%;
+    justify-content: center;
+}
+
+.searchForm {
+    border: 1px;
+
+    /* col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 */
+}
+.headerButton {
+    border: medium none;
+    background-image: none; 
+    background: transparent;
+    float: left;
+    background-color: transparent;
+    
 }
