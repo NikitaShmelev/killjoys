@@ -44,6 +44,7 @@ class App extends React.Component {
   componentDidMount = () => {
     fetchHomePage().then(
       (response) => {
+        debugger;
         this.setState({data: response.data});
 
       }
