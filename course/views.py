@@ -3,13 +3,18 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Course
 from .serializers import CourseSerializer
+from django.http import HttpResponseRedirect, HttpResponse
+import json
 
 class CourseListApiView(APIView):
     def get(self, request, *args, **kwargs):
 
-        courses = Course.objects.filter(status='O')
+        courses = Course.objects.filter(status=0)
         serializer = CourseSerializer(courses, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        print(serializer.data)
+        return HttpResponse(json.dumps(serializer.data), content_type="application/json")
+
+        # return Response({"data": serializer.data}, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         data = {

@@ -1,15 +1,15 @@
 from django.db import models
 
 class Course(models.Model):
-    STATUS_CHOICES = (
-        ('O', 'Open'),
-        ('P', 'Private'),)
+    # STATUS_CHOICES = (
+    #     ('O', 'Open'),
+    #     ('P', 'Private'),)
     
     name = models.CharField(max_length=200)
     owner = models.CharField(max_length=200)
     summary = models.TextField(default='')
     created_date = models.DateField(auto_now_add=True, blank=True)
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    status = models.IntegerField(default=1)
 
 class CourseTopic(models.Model):
     name = models.CharField(max_length=200)

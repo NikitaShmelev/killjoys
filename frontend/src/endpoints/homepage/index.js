@@ -1,9 +1,12 @@
-export const HOME_PAGE_ENDPOINT = "http://0.0.0.0:8000/";
+export const HOME_PAGE_ENDPOINT = "http://0.0.0.0:8000/course/";
 
 
 export const fetchHomePage = async () => {
     try {
-      const response = await fetch(HOME_PAGE_ENDPOINT);
+      const response = await fetch(
+        HOME_PAGE_ENDPOINT,
+        {mode:"no-cors"}
+        );
       const data = await response.json();
       return data;
     } catch (error) {
