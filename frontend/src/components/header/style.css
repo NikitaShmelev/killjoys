@@ -4,15 +4,25 @@ div.container {
 }
 
 .searchForm {
-    border: 1px;
+    margin-right: 5px;
+    
+}   
 
-    /* col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 */
-}
+
+
 .headerButton {
     border: medium none;
     background-image: none; 
     background: transparent;
-    float: left;
+    float: left; 
     background-color: transparent;
-    
+    font-size: 15px;
+    margin-left: 25px;
+    /* width: 57px;
+    height: 27px; */
+    transition: linear .2s;
+}
+
+.headerButton:hover {
+    color: lightblue; 
 }
