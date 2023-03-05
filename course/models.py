@@ -20,4 +20,5 @@ class TopicMaterials(models.Model):
     name = models.CharField(max_length=200)
     course_topic_id = models.ForeignKey(CourseTopic, default=-1, on_delete=models.PROTECT, null=True)
     file_path = models.CharField(max_length=500)
+
     
