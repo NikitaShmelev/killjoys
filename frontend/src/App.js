@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { fetchHomePage } from './endpoints/homepage';
 // import { connect } from 'redux';
-
+import CoursesComponent from './components/courses';
+import Header from './components/header';
 
 const headerStyle = {
   background: '#333',
@@ -34,41 +35,14 @@ class App extends React.Component {
     }
   }
 
-  makeHomePageRequest = async () => {
-    // axios.get(HOME_PAGE_ENDPOINT, this.state).then((response) => {
-    //   console.log(response.get_json())
-    // });
-    // try {
-    //   const response = await fetch(HOME_PAGE_ENDPOINT);
-    //   const data = await response.json();
-    //   console.log(data);
-    // } catch (error) {
-    //   console.error(error);
-    // }
-  };
-
-  renderPageheader = () => {
-    return (
-      <div>
-        <header style={headerStyle}>
-        <h1>My Website Header</h1>
-        <nav style={navStyle}>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      </div>
-    );
-  }
 
   render() {
 
     return (
       <div className="App">
-        {this.renderPageheader()}
+        <Header>
+          
+        </Header>
         <header className="App-header">
           <button>call</button>
         </header>
