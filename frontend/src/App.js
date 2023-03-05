@@ -32,6 +32,7 @@ class App extends React.Component {
     fetchHomePage().then(
       (response) => {
         debugger;
+        console.log(response.data)
         this.setState({data: response.data});
 
       }
