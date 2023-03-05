@@ -4,9 +4,10 @@ class Course(models.Model):
     STATUS_CHOICES = (
         ('O', 'Open'),
         ('P', 'Private'),)
+    
     name = models.CharField(max_length=200)
     owner = models.CharField(max_length=200)
-    status = models.Choices(max_length=100, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
 class CourseTopic(models.Model):
     name = models.CharField(max_length=200)
