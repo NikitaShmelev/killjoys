@@ -22,7 +22,7 @@ class ChatgpyRequest:
         return f"Create test with {question_number} questions in json format by text '{request_text}'"
         
     def chat_request(self, request_text):
-        openai.api_key = self.key
+        openai.api_key = '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'
         response = openai.Completion.create(
         model="text-davinci-003",
         prompt = request_text,
@@ -83,18 +83,18 @@ class TopicLiatApiView(APIView):
 
 @api_view(['POST'])
 def add_test_to_topic(request, course_id, topic_id):
-    req_text = request.data.text
+    req_text = request.data['text']
     chat_text = CHAT_GPT.create_test_text(req_text)
     chat_response = CHAT_GPT.chat_request(chat_text)
     file_name = f"Test_course_{course_id}_{topic_id}_{randint(100, 1000)}.json"
     response = CHAT_GPT.serialize_test_chat(chat_response)
-    TopicMaterials(name=request.data.name, 
+    TopicMaterials(name=request.data['name'], 
                    course_topic_id = CourseTopic.objects.get(pk=topic_id), 
                    file_path=f"materials\{file_name}"
                    )
     with open(f"materials\{file_name}", 'w') as test_file:
         json.dump(response, test_file)
-    return response
+    return Response(response)
         
     
  
