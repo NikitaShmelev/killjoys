@@ -20,9 +20,12 @@ class ChatgpyRequest:
         
     def create_test_text(self, request_text, question_number=10):
         return f"Create test with {question_number} questions in json format by text '{request_text}'"
+    
+    def create_summary_text(self, request_text):
+        return f"Create summary by text '{request_text}'"
         
     def chat_request(self, request_text):
-        openai.api_key = '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'
+        openai.api_key = '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'
         response = openai.Completion.create(
         model="text-davinci-003",
         prompt = request_text,
@@ -90,11 +93,27 @@ def add_test_to_topic(request, course_id, topic_id):
     response = CHAT_GPT.serialize_test_chat(chat_response)
     TopicMaterials(name=request.data['name'], 
                    course_topic_id = CourseTopic.objects.get(pk=topic_id), 
-                   file_path=f"materials\{file_name}"
+                   file_path=f"materials/\{file_name}"
                    )
     with open(f"materials\{file_name}", 'w') as test_file:
         json.dump(response, test_file)
     return Response(response)
+
+@api_view(['POST'])
+def create_text_summary(request, course_id, topic_id):
+    req_text = request.data['text']
+    full_text = CHAT_GPT.create_summary_text(req_text)
+    chat_response = CHAT_GPT.chat_request(full_text)
+    file_path = f"Summary_course_{course_id}_{topic_id}_{randint(100, 1000)}.txt"
+    with open(f"materials\\{file_path}", 'w') as f:
+        f.write(chat_response)
+    TopicMaterials(name=request.data['name'], 
+                   course_topic_id = CourseTopic.objects.get(pk=topic_id), 
+                   file_path=f"materials\\{file_path}"
+                   )
+    return Response({'summary': chat_response})
+
+
         
     
  
