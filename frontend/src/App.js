@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sosi huj react dwa raza daze tri czetyri
+          Learn React sosi huj
         </a>
       </header>
     </div>
